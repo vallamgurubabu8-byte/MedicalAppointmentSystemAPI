@@ -5,7 +5,7 @@ stages {
 
     stage('Checkout') {
         steps {
-            git 'https://github.com/vallamgurubabu8-byte/MedicalAppointmentSystemAPI.git'
+            git branch: 'main', url: 'https://github.com/vallamgurubabu8-byte/MedicalAppointmentSystemAPI.git'
         }
     }
 
