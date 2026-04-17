@@ -1,33 +1,33 @@
-pipeline{
-    agent any
-    tools{
-        maven 'Maven3'
-        jdk 'JDK21'
-    }
-    stages{
-      stage('Checkout'){
-            steps{
-                git branch: 'master', url: ''
-            }
-        }
-        stage('Build'){
-            steps{
-                sh 'mvn claen package'
-            }
-        }
-        stage('Build'){
-            steps{
-                 sh 'mvn claen package'
-            }
+pipeline {
+agent any
+
+stages {
+
+    stage('Checkout') {
+        steps {
+            git 'https://github.com/vallamgurubabu8-byte/MedicalAppointmentSystemAPI.git'
         }
     }
 
-    post{
-        success {
-            echo 'Build Successfull'
-        }
-        failure {
-            echo 'Build Failed!'
+    stage('Build') {
+        steps {
+            sh 'mvn clean package'
         }
     }
+
+    stage('Test') {
+        steps {
+            sh 'mvn test'
+        }
+    }
+}
+
+post {
+    success {
+        echo '✅ Build Successful!'
+    }
+    failure {
+        echo '❌ Build Failed!'
+    }
+}
 }
