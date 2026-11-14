@@ -17,7 +17,7 @@ import com.dev.MedicalAppointmentSystemAPI.entity.Appointment;
 import com.dev.MedicalAppointmentSystemAPI.service.AppointmentService;
 
 @RestController
-@RequestMapping("appointments")
+@RequestMapping("/appointments")
 public class AppointmentController {
 
 	@Autowired
